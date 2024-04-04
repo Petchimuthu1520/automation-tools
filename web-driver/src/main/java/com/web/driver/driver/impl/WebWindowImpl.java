@@ -1,6 +1,7 @@
 package com.web.driver.driver.impl;
 
 import com.web.driver.window.WebWindow;
+
 import org.openqa.selenium.WebDriver;
 
 /**
@@ -16,7 +17,6 @@ public class WebWindowImpl implements WebWindow {
     public WebWindowImpl(final WebDriver.Window window) {
         this.window = window;
     }
-
 
     /**
      * {@inheritDoc}

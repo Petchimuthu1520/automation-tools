@@ -10,6 +10,7 @@ import com.web.driver.page.PageInformationProvider;
 import com.web.driver.waits.WaitHandler;
 import com.web.driver.window.WebWindow;
 import com.web.driver.window.WindowInfoProvider;
+
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;

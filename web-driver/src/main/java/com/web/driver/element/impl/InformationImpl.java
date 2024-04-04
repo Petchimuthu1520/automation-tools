@@ -30,6 +30,7 @@ public class InformationImpl implements Information {
     /**
      * {@inheritDoc}
      *
+     * @param name The name of the attribute.
      * @return The attribute value as a String.
      */
     @Override

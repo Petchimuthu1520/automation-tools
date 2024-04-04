@@ -16,17 +16,16 @@ public final class ElementLocatorImpl implements ElementLocator {
 
     private final WebAutomationDriver webAutomationDriver;
 
-    /**
-     * Constructor for ElementLocatorImpl.
-     *
-     * @param webAutomationDriver the web automation driver used to interact with the web page
-     */
     public ElementLocatorImpl(final WebAutomationDriver webAutomationDriver) {
         this.webAutomationDriver = webAutomationDriver;
     }
 
     /**
      * {@inheritDoc}
+     *
+     * @param locatorType the type of locator to use
+     * @param value the value of the locator
+     * @return a WebPageElement representing the located web page element
      */
     @Override
     public WebPageElement getWebPageElement(final LocatorType locatorType, final String value) {
@@ -35,6 +34,10 @@ public final class ElementLocatorImpl implements ElementLocator {
 
     /**
      * {@inheritDoc}
+     *
+     * @param locatorType the type of locator to use
+     * @param value the value of the locator
+     * @return a collection of WebPageElement representing the located web page elements
      */
     @Override
     public Collection<WebPageElement> getWebPageElements(final LocatorType locatorType, final String value) {
@@ -63,42 +66,72 @@ public final class ElementLocatorImpl implements ElementLocator {
 
     /**
      * {@inheritDoc}
+     *
+     * @param locatorType the type of locator to use for the target element
+     * @param value the value of the locator for the target element
+     * @param knownLocatorType the type of locator to use for the known element
+     * @param knownValue the value of the locator for the known element
+     * @return a WebPageElement representing the located web page element
      */
     @Override
-    public WebPageElement withBelowElement(LocatorType locatorType, String value, LocatorType knownlocatorType, String knownValue) {
-        return webAutomationDriver.getElementFinder().findElement(with(locatorType, value).below(getByValue(knownlocatorType, knownValue)));
+    public WebPageElement withBelowElement(LocatorType locatorType, String value, LocatorType knownLocatorType, String knownValue) {
+        return webAutomationDriver.getElementFinder().findElement(with(locatorType, value).below(getByValue(knownLocatorType, knownValue)));
     }
 
     /**
      * {@inheritDoc}
+     *
+     * @param locatorType the type of locator to use for the target element
+     * @param value the value of the locator for the target element
+     * @param knownLocatorType the type of locator to use for the known element
+     * @param knownValue the value of the locator for the known element
+     * @return a WebPageElement representing the located web page element
      */
     @Override
-    public WebPageElement withAboveElement(LocatorType locatorType, String value, LocatorType knownlocatorType, String knownValue) {
-        return webAutomationDriver.getElementFinder().findElement(with(locatorType, value).above(getByValue(knownlocatorType, knownValue)));
+    public WebPageElement withAboveElement(LocatorType locatorType, String value, LocatorType knownLocatorType, String knownValue) {
+        return webAutomationDriver.getElementFinder().findElement(with(locatorType, value).above(getByValue(knownLocatorType, knownValue)));
     }
 
     /**
      * {@inheritDoc}
+     *
+     * @param locatorType the type of locator to use for the target element
+     * @param value the value of the locator for the target element
+     * @param knownLocatorType the type of locator to use for the known element
+     * @param knownValue the value of the locator for the known element
+     * @return a WebPageElement representing the located web page element
      */
     @Override
-    public WebPageElement withLeftElement(LocatorType locatorType, String value, LocatorType knownlocatorType, String knownValue) {
-        return webAutomationDriver.getElementFinder().findElement(with(locatorType, value).toLeftOf(getByValue(knownlocatorType, knownValue)));
+    public WebPageElement withLeftElement(LocatorType locatorType, String value, LocatorType knownLocatorType, String knownValue) {
+        return webAutomationDriver.getElementFinder().findElement(with(locatorType, value).toLeftOf(getByValue(knownLocatorType, knownValue)));
     }
 
     /**
      * {@inheritDoc}
+     *
+     * @param locatorType the type of locator to use for the target element
+     * @param value the value of the locator for the target element
+     * @param knownLocatorType the type of locator to use for the known element
+     * @param knownValue the value of the locator for the known element
+     * @return a WebPageElement representing the located web page element
      */
     @Override
-    public WebPageElement withRightElement(LocatorType locatorType, String value, LocatorType knownlocatorType, String knownValue) {
-        return webAutomationDriver.getElementFinder().findElement(with(locatorType, value).toRightOf(getByValue(knownlocatorType, knownValue)));
+    public WebPageElement withRightElement(LocatorType locatorType, String value, LocatorType knownLocatorType, String knownValue) {
+        return webAutomationDriver.getElementFinder().findElement(with(locatorType, value).toRightOf(getByValue(knownLocatorType, knownValue)));
     }
 
     /**
      * {@inheritDoc}
+     *
+     * @param locatorType the type of locator to use for the target element
+     * @param value the value of the locator for the target element
+     * @param knownLocatorType the type of locator to use for the known element
+     * @param knownValue the value of the locator for the known element
+     * @return a WebPageElement representing the located web page element
      */
     @Override
-    public WebPageElement withNearElement(LocatorType locatorType, String value, LocatorType knownlocatorType, String knownValue) {
-        return webAutomationDriver.getElementFinder().findElement(with(locatorType, value).near(getByValue(knownlocatorType, knownValue)));
+    public WebPageElement withNearElement(LocatorType locatorType, String value, LocatorType knownLocatorType, String knownValue) {
+        return webAutomationDriver.getElementFinder().findElement(with(locatorType, value).near(getByValue(knownLocatorType, knownValue)));
     }
 
     /**

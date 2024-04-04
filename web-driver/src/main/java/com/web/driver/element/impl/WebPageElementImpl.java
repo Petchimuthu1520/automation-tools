@@ -25,6 +25,8 @@ public final class WebPageElementImpl implements WebPageElement {
 
     /**
      * {@inheritDoc}
+     *
+     *  @return An ElementFinder instance for further element search within this element.
      */
     @Override
     public ElementFinder getElementfinder() {
@@ -33,6 +35,8 @@ public final class WebPageElementImpl implements WebPageElement {
 
     /**
      * {@inheritDoc}
+     *
+     * @return An Interaction instance for interacting with this element.
      */
     @Override
     public Interaction interact() {
@@ -41,6 +45,8 @@ public final class WebPageElementImpl implements WebPageElement {
 
     /**
      * {@inheritDoc}
+     *
+     * @return An PageInformationProvider instance for getting information about this element.
      */
     @Override
     public Information getInformer() {

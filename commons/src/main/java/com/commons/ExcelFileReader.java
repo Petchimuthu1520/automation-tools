@@ -1,45 +1,55 @@
 package com.commons;
 
-import org.apache.poi.ss.usermodel.*;
-
-import java.io.FileInputStream;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.Objects;
 
 public final class ExcelFileReader {
 
-    private static final String PATH = "C:\\Users\\V Karthick\\Downloads\\test.xlsx";
-    private static final String SHEET_NAME = "Sheet1";
     private static ExcelFileReader excelFileReader;
 
-    public ExcelFileReader() {
+    private ExcelFileReader() {
     }
 
     public static ExcelFileReader getInstance() {
         if (Objects.isNull(excelFileReader)) {
             excelFileReader = new ExcelFileReader();
         }
-
         return excelFileReader;
     }
 
+    /**
+     * Reads the file path and sheet name from the text file.
+     *
+     * @throws IOException If an I/O error occurs.
+     */
+    private static void readConfigFile() throws IOException {
+        try (BufferedReader reader = new BufferedReader(new FileReader("filepath.txt"))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                String[] parts = line.split("=");
+                if (parts.length == 2) {
+                    String key = parts[0].trim();
+                    String value = parts[1].trim();
+                    if (key.equals("PATH")) {
+                    } else if (key.equals("SHEET")) {
+                    }
+                }
+            }
+        }
+    }
+
+    /**
+     * Reads test data from the Excel file.
+     *
+     * @return  test data.
+     */
     public Object[][] getTestData() {
         Object[][] testData = null;
 
-        try (FileInputStream fileInputStream = new FileInputStream(PATH);
-
-            final Workbook workbook = WorkbookFactory.create(fileInputStream)) {
-            final Sheet sheet = workbook.getSheet(SHEET_NAME);
-            final int rowCount = sheet.getPhysicalNumberOfRows();
-            final int colCount = sheet.getRow(0).getLastCellNum();
-            testData = new Object[rowCount][colCount];
-
-            for (int i = 0; i < rowCount; i++) {
-                final Row row = sheet.getRow(i);
-                for (int j = 0; j < colCount; j++) {
-                    Cell cell = row.getCell(j);
-                    testData[i][j] = cell.getStringCellValue();
-                }
-            }
+        try {
+            readConfigFile();
         } catch (Exception e) {
             e.printStackTrace();
         }

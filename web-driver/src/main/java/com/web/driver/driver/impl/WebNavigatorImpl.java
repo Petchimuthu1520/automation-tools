@@ -1,6 +1,7 @@
 package com.web.driver.driver.impl;
 
 import com.web.driver.driver.service.interactions.WebNavigator;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriver.Navigation;
 
@@ -36,6 +37,8 @@ public final class WebNavigatorImpl implements WebNavigator {
 
     /**
      * {@inheritDoc}
+     *
+     * @param url The URL to getWebNavigator to.
      */
     @Override
     public void to(final String url) {

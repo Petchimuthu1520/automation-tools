@@ -3,6 +3,7 @@ package com.web.driver.driver.impl;
 import com.web.driver.driver.service.AlertHandler;
 import com.web.driver.driver.service.WebAutomationDriver;
 import com.web.driver.driver.service.interactions.WebTargetLocator;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WindowType;
 
@@ -25,6 +26,7 @@ public class WebTargetLocatorImpl implements WebTargetLocator {
     /**
      * {@inheritDoc}
      *
+     * @param name The name of the target getWebWindowHandler.
      * @return A {@link WebAutomationDriver} representing the target getWebWindowHandler.
      */
     @Override
@@ -35,6 +37,7 @@ public class WebTargetLocatorImpl implements WebTargetLocator {
     /**
      * {@inheritDoc}
      *
+     * @param windowType The type of the new getWebWindowHandler to be opened.
      * @return A {@link WebAutomationDriver} representing the new getWebWindowHandler.
      */
     @Override
