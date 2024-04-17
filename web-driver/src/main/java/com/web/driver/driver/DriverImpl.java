@@ -1,6 +1,6 @@
 package com.web.driver.driver;
 
-import com.commons.PropertyFileReader;
+import com.commons.property.PropertyFileReader;
 import com.web.driver.driver.service.WebAutomationDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -19,12 +19,6 @@ import java.util.Objects;
  */
 public final class DriverImpl implements Driver {
 
-    private final PropertyFileReader propertyFileReader;
-
-    public DriverImpl() {
-        this.propertyFileReader = PropertyFileReader.getInstance();
-    }
-
     /**
      * {@inheritDoc}
      *
@@ -33,7 +27,7 @@ public final class DriverImpl implements Driver {
     @Override
     public WebAutomationDriver getWebAutomationDriver() {
         final BrowserType browserType = Objects.requireNonNull(BrowserType.valueOf(
-                Objects.requireNonNull(propertyFileReader.getProperty()).getProperty("Browser").toUpperCase()));
+                Objects.requireNonNull(PropertyFileReader.read()).getProperty("Browser").toUpperCase()));
 
         return WebAutomationDriver.getInstance(getDriver(browserType));
     }
